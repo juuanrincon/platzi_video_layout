@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PlatziVideo</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				overflow: hidden;
+			}
+			.container {
+				display: grid;
+				grid-template-columns: 300px 1fr;
+				height: 100vh;
+				width: 100vw;
+			}
+			.playlists {
+				grid-column: 1 / 2;
+				grid-row: 1 / -1;
+				padding: 40px 20px;
+				background-color: #191931;
+				color: white;
+			}
+			.playlists h2 {
+				margin: 15px 0;
+				font-size: 1em;
+				font-weight: normal;
+			}
+			.playlists ol {
+				margin: 0 20px;
+				margin-bottom: 40px;
+			}
+			.playlists ol li {
+				padding: 0 15px;
+				margin: 15px 0;
+			}
+			.playlists p {
+				display: flex;
+				align-items: center;
+				margin-bottom: 20px;
+			}
+			.playlists p span {
+				margin-left: 15px;
+			}
+			.player {
+				display: grid;
+				grid-template-rows: 1fr auto 1fr;
+			}
+			.video {
+				width: 100%;
+				height: 100%;
+			}
+			.video__items {
+				display: grid;
+				grid-template-rows: repeat(2, auto);
+				align-items: center;
+			}
+			.video__item {
+				padding: 15px 30px;
+			}
+			.video__item h1 {
+				font-size: 1em;
+				font-weight: normal;
+			}
+			.video__item p {
+				color: gray;
+			}
+			.buttons {
+				display: grid;
+				grid-template-columns: auto auto 1fr;
+				grid-template-rows: auto;
+				column-gap: 10px;
+				padding: 0 10px 15px 30px;
+				justify-items: center;
+				align-items: center;
+				border-bottom: 1px solid grey;
+			}
+			.add {
+				justify-self: start;
+			}
+			.add button {
+				border-radius: 10px;
+				padding: 5px 10px;
+				font-size: 14px;
+				border: none;
+				background: linear-gradient(to right, #fb0b0b, #fc6296);
+				color: white;
+				cursor: pointer;
+			}
+			.share {
+				display: flex;
+				text-align: center;
+				justify-content: space-between;
+			}
+			.share div {
+				width: 70px;
+				font-size: 10px;
+			}
+			.tags {
+				display: flex;
+			}
+			.tags button {
+				width: 60px;
+				border-radius: 10px;
+				padding: 5px 10px;
+				margin: 0 5px;
+				font-size: 9px;
+				border: none;
+				background: linear-gradient(to right, #fb0b0b, #fc6296);
+				color: white;
+				cursor: pointer;
+			}
+			.tags button:nth-child(1) {
+				background: #9e52ff;
+			}
+			.tags button:nth-child(2) {
+				background: #17e9c4;
+			}
+			.tags button:nth-child(3) {
+				background: #e01622;
+			}
+			.tags button:nth-child(4) {
+				background: #ed3084;
+			}
+			.comments__container {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				column-gap: 20px;
+				padding: 10px 30px;
+			}
+			.comments__container h3 {
+				font-size: 1em;
+				font-weight: normal;
+				margin: 15px 0;
+			}
+			.comments__container input {
+				width: 100%;
+				padding: 10px;
+				padding-left: 40px;
+				font-size: 1em;
+				border: none;
+				border-bottom: 2px solid #cccacc;
+				border-radius: 5px;
+				background-color: #ebebeb;
+				background-image: url("./assets/001-man.svg");
+				background-size: 25px 25px;
+				background-repeat: no-repeat;
+				background-position-y: center;
+				background-position-x: 5px;
+			}
+			.comments {
+				margin: 15px 0;
+			}
+			.comment {
+				display: flex;
+				margin-bottom: 15px;
+			}
+			.comment__user {
+				margin-left: 15px;
+			}
+			.column2 figure {
+				margin-bottom: 15px;
+			}
+			.column2 figcaption {
+				width: 200px;
+				font-size: 12px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="playlists">
+				<figure class="logo">
+					<img src="./assets/logo.jpg" alt="" />
+				</figure>
+				<h2>Mi Playlist</h2>
+				<ol>
+					<li>5 Reasons To Choose A Notebook Over A Computer Desktop</li>
+					<li>Get Around Easily With A New York Limousine Service</li>
+					<li>How To Cook A Tender Juicy Steak</li>
+					<li>How To Remove Kidney Stones</li>
+					<li>The Science Of Superstitions</li>
+					<li>5 Reasons To Choose A Notebook Over A Computer Desktop</li>
+					<li>Get Around Easily With A New York Limousine Service</li>
+					<li>How To Cook A Tender Juicy Steak</li>
+					<li>How To Remove Kidney Stones</li>
+					<li>The Science Of Superstitions</li>
+				</ol>
+				<h2>Playlists de Amigos</h2>
+				<p>
+					<img src="./assets/001-man.svg" alt="" width="30px" /><span
+						>Gordon Carroll</span
+					>
+				</p>
+				<p>
+					<img src="./assets/002-woman.svg" alt="" width="30px" /><span
+						>Adeline Wilkins</span
+					>
+				</p>
+				<p>
+					<img src="./assets/003-delivery man.svg" alt="" width="30px" /><span
+						>John Wheeler</span
+					>
+				</p>
+				<p>
+					<img src="./assets/004-man.svg" alt="" width="30px" /><span
+						>Katherine Nelson</span
+					>
+				</p>
+			</div>
+
+			<div class="player">
+				<iframe
+					width="560"
+					height="315"
+					src="https://www.youtube.com/embed/kMw7EDIenQ8"
+					frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					class="video"
+				></iframe>
+
+				<div class="video__items">
+					<div class="video__item">
+						<h1>Cuándo llegará la VACUNA del Coronavirus</h1>
+						<p>124,886 vistas</p>
+					</div>
+
+					<div class="buttons">
+						<label for="" class="add">
+							<button>Agregar a mi lista</button>
+						</label>
+
+						<div class="share">
+							<div>
+								<img src="./assets/network.svg" alt="" width="15px" /><br />
+								<span>Compartir</span>
+							</div>
+							<div>
+								<img src="./assets/download.svg" alt="" width="15px" /><br />
+								<span>Guardar</span>
+							</div>
+						</div>
+
+						<div class="tags">
+							<button>Electronic</button>
+							<button>Rpc</button>
+							<button>80</button>
+							<button>Rela</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="comments__container">
+					<div class="column1">
+						<h3>Comentarios</h3>
+						<input type="search" placeholder="Añade un comentario" />
+
+						<div class="comments">
+							<div class="comment">
+								<figure>
+									<img src="./assets/001-man.svg" alt="" width="30px" />
+								</figure>
+								<div class="comment__user">
+									<span>Gordon Carroll</span> <br />
+									<span>Barbecue Sauce For A Perfect Barbecue</span>
+								</div>
+							</div>
+							<div class="comment">
+								<figure>
+									<img src="./assets/002-woman.svg" alt="" width="30px" />
+								</figure>
+								<div class="comment__user">
+									<span>Adeline Wilkins</span> <br />
+									<span>Why Las Vegas Hotel Rooms For You</span>
+								</div>
+							</div>
+							<div class="comment">
+								<figure>
+									<img
+										src="./assets/003-delivery man.svg"
+										alt=""
+										width="30px"
+									/>
+								</figure>
+								<div class="comment__user">
+									<span>John Wheeler</span> <br />
+									<span>What You Need To Know About Oil Fondue</span>
+								</div>
+							</div>
+							<div class="comment">
+								<figure>
+									<img src="./assets/004-man.svg" alt="" width="30px" />
+								</figure>
+								<div class="comment__user">
+									<span>Katherine Nelson</span> <br />
+									<span>Popular Uses Of The Internet</span>
+								</div>
+							</div>
+							<div class="comment">
+								<figure>
+									<img src="./assets/001-man.svg" alt="" width="30px" />
+								</figure>
+								<div class="comment__user">
+									<span>Gordon Carroll</span> <br />
+									<span>Are You Ready To Buy A Home Theater Audio System</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="column2">
+						<h3>Sugerencias</h3>
+						<figure>
+							<img src="./assets/soccer.jpg" alt="" width="200px" />
+							<figcaption>
+								Quick And Easy Lunches For The Cooking Challenged
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="./assets/soccer.jpg" alt="" width="200px" />
+							<figcaption>
+								Quick And Easy Lunches For The Cooking Challenged
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
